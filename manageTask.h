@@ -6,16 +6,13 @@
 #include <vector>
 class ManageTask {
 
-protected:
-int idCount = 0;
-
 private:
 std::vector<Task> tasks;
 void addTask();
 void showTasks();
 void changeTask();
 void deleteTask();
-
+int idCount = 0;
 public:
 void menu();
 
