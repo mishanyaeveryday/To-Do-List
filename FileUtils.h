@@ -4,8 +4,9 @@
 #include <fstream>
 #include <vector>
 #include <string>
+const std::string pathname = "/tasks.txt";
 
-void inputTasksToFile(const std::vector<Task>& tasks, const std::string &pathname);
-std::vector<Task> outputTasksFromFile(const std::string &pathname);
+void saveTasksToFile(const Task& t, const std::string &pathname);
+std::vector<Task> readTasksFromFile(const std::string &pathname);
 
 #endif
