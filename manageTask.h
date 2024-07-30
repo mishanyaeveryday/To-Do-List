@@ -11,8 +11,8 @@ std::vector<Task> tasks;
 void addTask();
 void showTasks();
 void changeTask();
-void deleteTask();
-int idCount = 0;
+void deleteTask(const int &id);
+int idCount;
 public:
 void menu();
 
