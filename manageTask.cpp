@@ -1,13 +1,13 @@
 #include "manageTask.h"
 
 ManageTask::ManageTask(const std::string& pathname)
-    : pathname(pathname), idCount(0) {
+    : pathname(pathname), idCount(tasks.size()+1) {
 }
 
 void ManageTask::addTask(){
     std::string title;
     std::string description;
-    bool completed;
+    bool completed = false;
     
     std::cout << "Enter title: ";
     std::getline(std::cin, title);
@@ -15,19 +15,23 @@ void ManageTask::addTask(){
     std::cout << "Enter description: ";
     std::getline(std::cin, description);
     Task newTask(idCount++, title, description, !completed);
+    tasks.push_back(newTask);
     saveTasksToFile(newTask, pathname);
 }
 
 void ManageTask::showTasks(){
-   std::vector <Task> vec = readTasksFromFile(pathname);
-   for(Task v : vec) { std::cout << v << std::endl; }
+  if(tasks.empty()){
+    std::cout << "No tasks to show." << std::endl;
+    return;
+  }
+   for(const Task &t : tasks) { std::cout << t << std::endl; }
 }
 
 void ManageTask::changeTask(){
     
 }
 
-void ManageTask::deleteTask(const int &id){
+void ManageTask::deleteTask(){
 
 }
 void ManageTask::menu(){
@@ -61,7 +65,7 @@ std::cin.ignore();
     break;
   case 'd':
   case 'D':
-    //this->deleteTask();
+    this->deleteTask();
     break;
   case 'q':
   case 'Q':
@@ -73,5 +77,11 @@ std::cin.ignore();
 }
 
 } while(option != 'q' && option != 'Q');
+
+}
+
+void ManageTask::run(){
+  tasks = readTasksFromFile(this->pathname);
+  this->menu();
 
 }

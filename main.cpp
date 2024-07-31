@@ -7,6 +7,6 @@
 int main() {
     std::string pathname = "tasks.txt";
     ManageTask task(pathname);
-    task.menu();
+    task.run();
     return 0;
 }
