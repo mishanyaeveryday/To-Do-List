@@ -1,15 +1,20 @@
 #include "manageTask.h"
 
+ManageTask::ManageTask(const std::string& pathname)
+    : pathname(pathname), idCount(0) {
+}
+
 void ManageTask::addTask(){
     std::string title;
     std::string description;
-
+    bool completed;
+    
     std::cout << "Enter title: ";
     std::getline(std::cin, title);
 
     std::cout << "Enter description: ";
     std::getline(std::cin, description);
-    Task newTask(idCount++, title, description);
+    Task newTask(idCount++, title, description, !completed);
     saveTasksToFile(newTask, pathname);
 }
 
@@ -39,6 +44,7 @@ std::cout << "Q - Quit" << std::endl;
 std::cout << "--------------------" << std::endl;
 std::cout << "Enter your option: ";
 std::cin >> option;
+std::cin.ignore();
 
     switch(option) {
   case 'a':

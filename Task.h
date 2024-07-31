@@ -13,7 +13,6 @@ struct Task {
     Task(int id, const std::string& title, const std::string& description, bool completed)
         : id(id), title(title), description(description), completed(completed) {}
 
-    // Перегрузка оператора вывода должна быть объявлена как дружественная функция
     friend std::ostream& operator<<(std::ostream &os, const Task &task);
 };
 

@@ -13,7 +13,10 @@ void showTasks();
 void changeTask();
 void deleteTask(const int &id);
 int idCount;
+std::string pathname;
+
 public:
+ManageTask(const std::string& pathname);
 void menu();
 
 };

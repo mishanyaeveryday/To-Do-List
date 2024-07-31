@@ -1,0 +1,12 @@
+0
+Book
+Read 30 pages 
+1
+1
+Food
+Buy 3 apples, 2 milks, bread and 1 kg potatoes
+1
+2
+Game
+Complete Resident Evil
+1

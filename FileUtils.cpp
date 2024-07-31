@@ -10,7 +10,7 @@ void saveTasksToFile(const Task& t, const std::string &pathname){
     out_file << t.id << std::endl;
     out_file << t.title << std::endl;
     out_file << t.description << std::endl;
-    out_file << t.completed_task << std::endl;
+    out_file << t.completed << std::endl;
     out_file.close();
 }
 std::vector<Task> readTasksFromFile(const std::string &pathname){ 
