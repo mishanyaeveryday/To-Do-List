@@ -5,7 +5,7 @@ ManageTask::ManageTask(const std::string& pathname)
 }
 
 void ManageTask::addTask(){
-  
+
   if(tasks.empty()){
     idCount = 1;
 
@@ -30,15 +30,84 @@ void ManageTask::addTask(){
 }
 
 void ManageTask::showTasks(){
+
   if(tasks.empty()){
     std::cout << "No tasks to show." << std::endl;
     return;
   }
    for(const Task &t : tasks) { std::cout << t << std::endl; }
+
 }
 
 void ManageTask::changeTask(){
+
+    std::vector <Task> temp_tasks;
+    bool is_id = false;
+    tasks = readTasksFromFile(this->pathname);
+    int id = 0;
+    std::string title;
+    std::string description;
+    char option;
+    std::cout << "Enter task's id: ";
+    std::cin >> id;
     
+    for(Task task : tasks){
+      if(task.id == id){
+        is_id = true;
+        std::cout << std::right << std::setw(10) << "What you want to change?" << std::endl;
+        std::cout <<"A - whole task" << std::endl << "T - title" << std::endl << "D - description" << std::endl << "M - mark as done" << std::endl;
+        std::cout << "Enter your option: ";
+        std::cin >> option;
+        std::cin.ignore();
+        switch(option) {
+
+  case 'a':
+  case 'A':
+  std::cout << "Enter new title: ";
+  std::getline(std::cin, title);
+  std::cout << "Enter new description: ";
+  std::getline(std::cin, description);
+  task.title = title;
+  task.description = description;
+  break;
+
+  case 't':
+  case 'T':
+  std::cout << "Enter new title: ";
+  std::getline(std::cin, title);
+  task.title = title;
+  break;
+
+  case 'd':
+  case 'D':
+  std::cout << "Enter new description: ";
+  std::getline(std::cin, description);
+  task.description = description;
+  break; 
+  case 'm':
+  case 'M':
+  task.completed = true;
+  std::cout << "the task " << task.title << " is marked as completed" << std::endl;
+  break; 
+
+  default:
+  std::cout << "There is no such choice" << std::endl;
+  break;
+
+} 
+   } temp_tasks.push_back(task);
+       } 
+       tasks = temp_tasks;
+    if(is_id == false) { std::cout << "There is no task for this id" << std::endl; }
+   else {
+std::ofstream file(this->pathname, std::ios::out | std::ios::trunc);
+    if (!file) {
+          std::cerr << "Error opening the file" << std::endl;
+        exit(1);
+    } 
+    file.close();
+    for(Task t : tasks) { saveTasksToFile(t, this->pathname); }
+   }
 }
 
 void ManageTask::deleteTask(){
