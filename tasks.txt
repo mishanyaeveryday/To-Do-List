@@ -1,8 +1,16 @@
 1
-Homework
-Do math
-1
-2
 Shoping
 Buy ice cream, milk, coffe and 3 apples
 1
+2
+Sweets
+Buy cakes and sweets
+0
+3
+Cat
+Feed black cat
+0
+4
+Book
+Finish reading book about algorithms
+0
