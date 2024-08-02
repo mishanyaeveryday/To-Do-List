@@ -6,19 +6,3 @@ Do math
 Shoping
 Buy ice cream, milk, coffe and 3 apples
 1
-3
-Project
-Finish the project
-0
-4
-Sweets
-Buy cakes and sweets
-0
-5
-Cat
-Feed black cat
-0
-6
-Book
-Finish reading book about algorithms
-0
