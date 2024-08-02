@@ -87,7 +87,7 @@ void ManageTask::changeTask(){
   case 'm':
   case 'M':
   task.completed = true;
-  std::cout << "the task " << task.title << " is marked as completed" << std::endl;
+  std::cout << "The task " << task.title << " is marked as completed" << std::endl;
   break; 
 
   default:
@@ -111,7 +111,41 @@ std::ofstream file(this->pathname, std::ios::out | std::ios::trunc);
 }
 
 void ManageTask::deleteTask(){
-
+  std::vector <Task> temp_tasks;
+    bool is_id = false;
+    tasks = readTasksFromFile(this->pathname);
+    int id = 0;
+    char option;
+    std::cout << "Enter task's id: ";
+    std::cin >> id;
+    
+    for(auto it = tasks.begin(); it != tasks.end(); ++it){
+        if(it->id == id){
+            is_id = true;
+            std::cout << "Are you sure you want to delete the task? [Y/N] ";
+            std::cin >> option;
+            std::cin.ignore();
+            if(option == 'Y' || option == 'y'){
+                tasks.erase(it);
+                std::cout << "Task deleted." << std::endl;
+                break;
+            } else {
+                std::cout << "Task not deleted." << std::endl;
+            }
+        } if(is_id == true){ it->id--; }
+        temp_tasks.push_back(*it);
+       } 
+       tasks = temp_tasks;
+    if(is_id == false) { std::cout << "There is no task for this id" << std::endl; }
+   else {
+std::ofstream file(this->pathname, std::ios::out | std::ios::trunc);
+    if (!file) {
+          std::cerr << "Error opening the file" << std::endl;
+        exit(1);
+    } 
+    file.close();
+    for(Task t : tasks) { saveTasksToFile(t, this->pathname); }
+   }
 }
 void ManageTask::menu(){
 char option;
