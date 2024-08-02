@@ -1,20 +1,12 @@
-0
-Food
-Buy milk and 4 bananas
 1
-0
-Coffee
-Make Coffee with 2 spoons of sugar
-1
-0
 Homework
-Make homework from math and chemistry
-1
-1
-Laptop
-Fix laptop
-1
-1
-dksk ksls
-1234
-1
+Do math
+0
+2
+Food
+Buy ice cream, milk, coffe and 3 apples
+0
+3
+Project
+Finish the project
+0
