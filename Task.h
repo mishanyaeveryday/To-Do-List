@@ -13,6 +13,8 @@ struct Task {
     Task(int id, const std::string& title, const std::string& description, bool completed)
         : id(id), title(title), description(description), completed(completed) {}
 
+    Task(const Task &obj) : id(obj.id), title(obj.title), description(obj.description), completed(obj.completed) {}
+
     friend std::ostream& operator<<(std::ostream &os, const Task &task);
 };
 
