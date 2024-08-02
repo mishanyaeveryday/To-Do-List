@@ -121,14 +121,14 @@ void ManageTask::deleteTask(){
     
     for(Task task : tasks){
       if(task.id == id){ 
-        std::cout << "Are you sure you want to delete the task? [Y/N] ";
+        std::cout << "Are you sure you want to delete the task " << task.title << "? [Y/N] ";
             std::cin >> option;
             std::cin.ignore();
             if(option == 'Y' || option == 'y'){
-                std::cout << "Task deleted." << std::endl;
+                std::cout << "Task " << task.title << " deleted." << std::endl;
                 is_id = true; 
             } else {
-                std::cout << "Task not deleted." << std::endl;
+                std::cout << "Task " << task.title << " not deleted." << std::endl;
                 temp_tasks.push_back(task);
             }}
       else {
