@@ -111,7 +111,7 @@ std::ofstream file(this->pathname, std::ios::out | std::ios::trunc);
 }
 
 void ManageTask::deleteTask(){
-  std::vector <Task> temp_tasks;
+    std::vector <Task> temp_tasks;
     bool is_id = false;
     tasks = readTasksFromFile(this->pathname);
     int id = 0;
@@ -119,22 +119,23 @@ void ManageTask::deleteTask(){
     std::cout << "Enter task's id: ";
     std::cin >> id;
     
-    for(auto it = tasks.begin(); it != tasks.end(); ++it){
-        if(it->id == id){
-            is_id = true;
-            std::cout << "Are you sure you want to delete the task? [Y/N] ";
+    for(Task task : tasks){
+      if(task.id == id){ 
+        std::cout << "Are you sure you want to delete the task? [Y/N] ";
             std::cin >> option;
             std::cin.ignore();
             if(option == 'Y' || option == 'y'){
-                tasks.erase(it);
                 std::cout << "Task deleted." << std::endl;
-                break;
+                is_id = true; 
             } else {
                 std::cout << "Task not deleted." << std::endl;
-            }
-        } if(is_id == true){ it->id--; }
-        temp_tasks.push_back(*it);
+                temp_tasks.push_back(task);
+            }}
+      else {
+         if(is_id == true){ task.id--; }
+        temp_tasks.push_back(task);
        } 
+      }
        tasks = temp_tasks;
     if(is_id == false) { std::cout << "There is no task for this id" << std::endl; }
    else {
