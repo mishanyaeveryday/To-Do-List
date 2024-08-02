@@ -5,6 +5,16 @@ ManageTask::ManageTask(const std::string& pathname)
 }
 
 void ManageTask::addTask(){
+  
+  if(tasks.empty()){
+    idCount = 1;
+
+  } else {
+
+    Task last_task(tasks.back());
+    idCount =  last_task.id + 1;
+  }
+
     std::string title;
     std::string description;
     bool completed = false;
@@ -14,7 +24,7 @@ void ManageTask::addTask(){
 
     std::cout << "Enter description: ";
     std::getline(std::cin, description);
-    Task newTask(idCount++, title, description, !completed);
+    Task newTask(idCount, title, description, completed);
     tasks.push_back(newTask);
     saveTasksToFile(newTask, pathname);
 }
