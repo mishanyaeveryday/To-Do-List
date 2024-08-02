@@ -15,6 +15,7 @@ struct Task {
 
     Task(const Task &obj) : id(obj.id), title(obj.title), description(obj.description), completed(obj.completed) {}
 
+    ~Task() {}
     friend std::ostream& operator<<(std::ostream &os, const Task &task);
 };
 
