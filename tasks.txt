@@ -1,5 +1,5 @@
 1
-Shoping
+Shopping
 Buy ice cream, milk, coffe and 3 apples
 1
 2
@@ -8,7 +8,7 @@ Buy cakes and sweets
 0
 3
 Cat
-Feed black cat
+Feed the black cat
 0
 4
 Book
