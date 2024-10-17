@@ -22,9 +22,9 @@ void ManageTask::addTask(){
     bool completed = false;
     
     std::getline(std::cin, description);
-    Task newTask(idCount, title, description, completed);
-    tasks.push_back(newTask);
-    saveTasksToFile(newTask, pathname);
+    // Task newTask(idCount, title, description, completed);
+    // tasks.push_back(newTask);
+    // saveTasksToFile(newTask, pathname);
 }
 
 void ManageTask::showTasks(){
@@ -43,11 +43,11 @@ void ManageTask::changeTask(){
 
     std::vector <Task> temp_tasks;
     bool is_id = false;
-    tasks = readTasksFromFile(this->pathname);
-    int id = 0;
-    std::string title;
-    std::string description;
-    char option;
+    // tasks = readTasksFromFile(this->pathname);
+    // int id = 0;
+    // std::string title;
+    // std::string description;
+    // char option;
     std::cout << "Enter task's id: ";
     std::cout << "Enter task's id: ";
     std::cout << "Enter task's id: ";
@@ -69,10 +69,10 @@ void ManageTask::changeTask(){
   std::cout << "Enter new title: ";
   std::getline(std::cin, title);
   std::cout << "Enter new description: ";
-  std::getline(std::cin, description);
-  task.title = title;
-  task.description = description;
-  break;
+  // std::getline(std::cin, description);
+  // task.title = title;
+  // task.description = description;
+  // break;
 
   case 't':
   case 'T':
