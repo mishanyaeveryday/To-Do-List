@@ -1,4 +1,6 @@
 #include "manageTask.h"
+#include <stdio.h>
+#include <string.h>
 
 ManageTask::ManageTask(const std::string& pathname)
     : pathname(pathname), idCount(tasks.size()+1) {
@@ -7,7 +9,7 @@ ManageTask::ManageTask(const std::string& pathname)
 void ManageTask::addTask(){
 
   if(tasks.empty()){
-    idCount = 1;
+    idCount = 2;
 
   } else {
 
@@ -19,10 +21,6 @@ void ManageTask::addTask(){
     std::string description;
     bool completed = false;
     
-    std::cout << "Enter title: ";
-    std::getline(std::cin, title);
-
-    std::cout << "Enter description: ";
     std::getline(std::cin, description);
     Task newTask(idCount, title, description, completed);
     tasks.push_back(newTask);
@@ -30,6 +28,8 @@ void ManageTask::addTask(){
 }
 
 void ManageTask::showTasks(){
+
+    //zmiana Aleksander Wolak
 
   if(tasks.empty()){
     std::cout << "No tasks to show." << std::endl;
@@ -48,6 +48,9 @@ void ManageTask::changeTask(){
     std::string title;
     std::string description;
     char option;
+    std::cout << "Enter task's id: ";
+    std::cout << "Enter task's id: ";
+    std::cout << "Enter task's id: ";
     std::cout << "Enter task's id: ";
     std::cin >> id;
     
